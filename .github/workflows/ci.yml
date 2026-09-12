@@ -1,0 +1,49 @@
+name: Verify
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  aws:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build:aws
+      - run: npm run test:aws
+      - run: npm run test:aws:team
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run setup
+      - run: npm run build
+      - name: Verify built API
+        shell: bash
+        run: |
+          npm start -- --port 5183 > /tmp/folio-server.log 2>&1 &
+          folio_server_pid=$!
+          trap 'kill "$folio_server_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 45); do
+            if curl --fail --silent --max-time 3 http://127.0.0.1:5183/api/workspace > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          if ! FOLIO_TEST_URL=http://127.0.0.1:5183 npm run test:api; then
+            tail -n 100 /tmp/folio-server.log
+            exit 1
+          fi

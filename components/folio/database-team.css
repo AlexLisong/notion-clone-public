@@ -1,0 +1,276 @@
+.database-team .database-tools,
+.database-team-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.database-view-tabs {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.database-team-filters {
+  padding: 12px 0;
+}
+.database-filter-select {
+  height: 30px !important;
+  max-width: 220px;
+  font-size: 12px !important;
+  padding: 3px 8px !important;
+  box-shadow: none !important;
+}
+.database-my-tasks {
+  font-size: 12px;
+}
+.database-my-tasks[aria-pressed="true"] {
+  background: var(--accent);
+}
+.database-view-note {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+.database-team button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.database-team .property-input[readonly] {
+  cursor: default;
+}
+.database-team .property-input[readonly]:focus {
+  box-shadow: none;
+}
+.database-team .row-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+}
+.database-team .board-card[draggable="false"] {
+  cursor: default;
+}
+.database-relation-input {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  max-width: 100%;
+}
+.database-relation-input .property-select {
+  max-width: 220px;
+}
+.database-relation-input > a {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+.database-property-help {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.database-calendar-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0 16px;
+}
+.database-calendar-toolbar h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+.database-calendar-toolbar > div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.database-calendar-toolbar .plain-button {
+  font-size: 12px;
+}
+.database-calendar-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.database-calendar-grid {
+  width: 100%;
+  min-width: 700px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.database-calendar-grid th {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  text-align: right;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.database-calendar-grid td {
+  height: 118px;
+  vertical-align: top;
+  padding: 5px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.database-calendar-grid td:last-child {
+  border-right: 0;
+}
+.database-calendar-grid tr:last-child td {
+  border-bottom: 0;
+}
+.database-calendar-grid .outside-month {
+  background: var(--muted);
+}
+.database-calendar-grid .outside-month time {
+  color: var(--muted-foreground);
+}
+.database-calendar-day {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.database-calendar-day time {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.database-calendar-day .icon-button {
+  width: 23px;
+  height: 23px;
+}
+.database-calendar-grid .is-today time {
+  color: var(--primary-foreground);
+  background: var(--primary);
+  font-weight: 600;
+}
+.database-calendar-event {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 5px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--background);
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.45;
+}
+.database-calendar-event:hover {
+  background: var(--accent);
+}
+.database-calendar-event > span:first-child {
+  flex-shrink: 0;
+}
+.database-calendar-event > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.database-calendar-event small {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 10px;
+  margin-top: 3px;
+}
+.database-undated {
+  padding: 22px 0 8px;
+}
+.database-undated > h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.database-undated > h3 > span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+.database-undated > p {
+  padding: 10px 0;
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+
+.database-task-list {
+  display: grid;
+}
+.database-task-row {
+  padding: 13px 8px;
+  border-bottom: 1px solid var(--border);
+}
+.database-task-row:hover {
+  background: color-mix(in srgb, var(--muted) 50%, transparent);
+}
+.database-task-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.database-task-title .row-title {
+  font-size: 14px;
+  font-weight: 550;
+}
+.database-task-properties {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding: 8px 0 0 27px;
+}
+.database-task-properties > label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 110px;
+  max-width: 250px;
+}
+.database-task-properties > label > span:first-child {
+  font-size: 10px;
+  color: var(--muted-foreground);
+}
+.database-task-properties .property-input {
+  font-size: 12px;
+}
+.database-task-properties .property-select {
+  font-size: 11px !important;
+}
+
+@media (max-width: 700px) {
+  .database-team .database-toolbar {
+    align-items: stretch;
+  }
+  .database-team .database-tools {
+    width: 100%;
+  }
+  .database-team-filters {
+    gap: 7px;
+  }
+  .database-filter-select {
+    max-width: 170px;
+  }
+  .database-view-note {
+    width: 100%;
+    margin-left: 0;
+  }
+  .database-task-properties {
+    padding-left: 0;
+    gap: 10px 14px;
+  }
+  .database-task-properties > label {
+    min-width: 100px;
+  }
+}

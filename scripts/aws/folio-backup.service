@@ -1,0 +1,8 @@
+[Unit]
+Description=Back up Folio SQLite and private configuration
+After=network-online.target folio.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/folio-backup
+UMask=0077

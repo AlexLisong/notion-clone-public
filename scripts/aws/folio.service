@@ -1,0 +1,28 @@
+[Unit]
+Description=Folio personal workspace
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=folio
+Group=folio
+WorkingDirectory=/opt/folio/current
+EnvironmentFile=/etc/folio/runtime.env
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+SuccessExitStatus=143
+TimeoutStopSec=30
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/folio
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+MemoryMax=768M
+TasksMax=128
+
+[Install]
+WantedBy=multi-user.target
